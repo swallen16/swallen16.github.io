@@ -30,7 +30,29 @@
           </div>
 
           <div class="terminal-menu boot-line boot-5">
-            <p class="terminal-prompt">SELECT MODULE:<span class="terminal-cursor" aria-hidden="true">_</span></p>
+            <p class="terminal-prompt">SELECT MODULE:</p>
+
+            <form class="terminal-command" id="module-form" autocomplete="off">
+              <label for="module-input" class="terminal-command-label">&gt;</label>
+              <input
+                id="module-input"
+                class="terminal-command-input"
+                name="module"
+                type="text"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                maxlength="2"
+                aria-describedby="module-feedback"
+                aria-label="Enter module number 1 through 4"
+                spellcheck="false"
+              />
+              <span class="terminal-cursor command-cursor" aria-hidden="true">_</span>
+              <button class="terminal-enter" type="submit">[ENTER]</button>
+            </form>
+
+            <p class="terminal-feedback" id="module-feedback" aria-live="polite">
+              ENTER MODULE NUMBER [01-04]
+            </p>
 
             <nav class="terminal-options" aria-label="Portfolio navigation">
               <a href="about.html"><span>[01]</span> TELL ME MORE ABOUT YOURSELF</a>
