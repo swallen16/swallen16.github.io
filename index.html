@@ -5,57 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Sidoney Wallen's IT portfolio." />
   <title>Sidoney Wallen | Portfolio</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body class="home-page" id="top">
   <main class="home-shell">
-    <section class="landing" id="landing" aria-labelledby="landing-title">
+    <section class="landing terminal-landing" id="landing" aria-labelledby="landing-title">
       <div class="landing-inner">
-        <header class="landing-header">
-          <p class="small-intro">Hello, I’m <span>Sidoney Wallen</span>.</p>
-          <p class="landing-label">IT PORTFOLIO</p>
-        </header>
+        <div class="terminal-frame">
+          <div class="terminal-topline">
+            <span>[SYSTEM ONLINE]</span>
+            <span>SYS:PORTFOLIO // v1.0</span>
+          </div>
 
-        <div class="landing-copy">
-          <p class="eyebrow">WELCOME</p>
-          <h1 id="landing-title">How can I help you?</h1>
-        </div>
+          <div class="boot-sequence" aria-label="Portfolio boot sequence">
+            <p class="boot-line boot-1">BOOTING PORTFOLIO .... [10% COMPLETE]</p>
+            <p class="boot-line boot-2">INITIALIZING MODULES .. [50% COMPLETE]</p>
+            <p class="boot-line boot-3">SYSTEM READY .......... [100% COMPLETE]</p>
+          </div>
 
-        <nav class="choice-grid" aria-label="Portfolio navigation">
-          <a class="choice-button" href="about.html">
-            <span class="choice-number">01</span>
-            <span class="choice-label">Tell me more about yourself</span>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
+          <div class="terminal-title boot-line boot-4">
+            <h1 id="landing-title">SIDONEY WALLEN</h1>
+            <p>IT PORTFOLIO v1.0</p>
+          </div>
 
-          <a class="choice-button" href="projects.html">
-            <span class="choice-number">02</span>
-            <span class="choice-label">Projects please</span>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
+          <div class="terminal-menu boot-line boot-5">
+            <p class="terminal-prompt">SELECT MODULE:<span class="terminal-cursor" aria-hidden="true">_</span></p>
 
-          <a class="choice-button" href="experience.html">
-            <span class="choice-number">03</span>
-            <span class="choice-label">Experience</span>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
+            <nav class="terminal-options" aria-label="Portfolio navigation">
+              <a href="about.html"><span>[01]</span> TELL ME MORE ABOUT YOURSELF</a>
+              <a href="projects.html"><span>[02]</span> PROJECTS PLEASE</a>
+              <a href="experience.html"><span>[03]</span> EXPERIENCE</a>
+              <a href="contact.html"><span>[04]</span> CONTACT</a>
+            </nav>
+          </div>
 
-          <a class="choice-button" href="contact.html">
-            <span class="choice-number">04</span>
-            <span class="choice-label">Contact</span>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
-        </nav>
-
-        <div class="scroll-cue" aria-hidden="true">
-          <span>scroll to explore</span>
-          <span class="scroll-line"></span>
-          <span class="scroll-arrow">↓</span>
+          <div class="terminal-footer boot-line boot-5" aria-hidden="true">
+            <span>&gt; SCROLL TO CONTINUE</span>
+            <span>STATUS: READY</span>
+          </div>
         </div>
       </div>
     </section>
@@ -64,26 +52,27 @@
 
     <div class="story">
       <nav class="story-nav" aria-label="Homepage sections">
-        <a class="story-brand" href="#top">Sidoney Wallen</a>
+        <a class="story-brand" href="#top">[HOME] SIDONEY WALLEN</a>
         <div class="story-nav-links">
-          <a href="#hello">Hello</a>
-          <a href="#work">Work</a>
-          <a href="#experience">Experience</a>
-          <a href="#approach">Approach</a>
-          <a href="#contact">Contact</a>
+          <a href="#hello">HELLO</a>
+          <a href="#work">WORK</a>
+          <a href="#experience">EXPERIENCE</a>
+          <a href="#approach">APPROACH</a>
+          <a href="#contact">CONTACT</a>
         </div>
+        <span class="nav-status">SYS:ONLINE</span>
       </nav>
 
       <section class="story-section story-intro" id="hello">
         <div class="section-wrap reveal">
-          <p class="section-index">01 / HELLO</p>
+          <p class="section-index">[01] HELLO</p>
 
           <div class="story-intro-grid">
             <div>
               <h2 class="story-title">Identity. Access. Trust.</h2>
             </div>
 
-            <div class="story-copy-column">
+            <div class="story-copy-column terminal-panel">
               <p class="story-lead">
                 I’m especially interested in Identity & Access Management: how organizations
                 secure digital identities, enforce access controls, and ensure users
@@ -97,27 +86,24 @@
                 SSO, and access governance.
               </p>
 
-              <a class="story-link dark-link" href="about.html">
-                More about me <span aria-hidden="true">↗</span>
-              </a>
+              <a class="story-link" href="about.html">[OPEN ABOUT] ↗</a>
             </div>
           </div>
-
         </div>
       </section>
 
       <section class="story-section story-work" id="work">
         <div class="section-wrap">
           <div class="section-heading reveal">
-            <p class="section-index light-index">02 / SELECTED WORK</p>
-            <h2 class="story-title light-title">A few things I’ve worked on.</h2>
+            <p class="section-index">[02] SELECTED WORK</p>
+            <h2 class="story-title">A few things I’ve worked on.</h2>
           </div>
 
           <div class="project-list">
             <article class="project-row reveal">
               <div class="project-meta">
-                <span>01</span>
-                <span>Networking · Infrastructure</span>
+                <span>[01]</span>
+                <span>NETWORKING / INFRASTRUCTURE</span>
               </div>
               <div class="project-main">
                 <h3>Music Store Network Infrastructure</h3>
@@ -132,8 +118,8 @@
 
             <article class="project-row reveal">
               <div class="project-meta">
-                <span>02</span>
-                <span>Web · Analytics · Cloud</span>
+                <span>[02]</span>
+                <span>WEB / ANALYTICS / CLOUD</span>
               </div>
               <div class="project-main">
                 <h3>Close Safely / Themis Lending</h3>
@@ -148,8 +134,8 @@
 
             <article class="project-row reveal">
               <div class="project-meta">
-                <span>03</span>
-                <span>Systems Administration</span>
+                <span>[03]</span>
+                <span>SYSTEMS ADMINISTRATION</span>
               </div>
               <div class="project-main">
                 <h3>Windows Server Labs</h3>
@@ -163,22 +149,20 @@
             </article>
           </div>
 
-          <a class="story-link light-link reveal" href="projects.html">
-            View all projects <span aria-hidden="true">↗</span>
-          </a>
+          <a class="story-link reveal" href="projects.html">[VIEW ALL PROJECTS] ↗</a>
         </div>
       </section>
 
       <section class="story-section story-experience" id="experience">
         <div class="section-wrap reveal">
-          <p class="section-index">03 / EXPERIENCE</p>
+          <p class="section-index">[03] EXPERIENCE</p>
 
           <div class="experience-grid">
             <div>
               <h2 class="story-title">Enterprise support in practice.</h2>
             </div>
 
-            <div class="experience-card">
+            <div class="experience-card terminal-panel">
               <h3>Total Credit Recovery</h3>
               <p>
                 Provided user and endpoint support across a Microsoft environment, including
@@ -188,34 +172,32 @@
               </p>
 
               <div class="skill-cloud" aria-label="Experience technologies">
-                <span>Active Directory</span>
-                <span>Microsoft 365</span>
-                <span>Intune</span>
+                <span>ACTIVE DIRECTORY</span>
+                <span>MICROSOFT 365</span>
+                <span>INTUNE</span>
                 <span>MFA</span>
                 <span>VPN</span>
-                <span>Windows</span>
+                <span>WINDOWS</span>
               </div>
             </div>
           </div>
 
-          <a class="story-link dark-link" href="experience.html">
-            View experience <span aria-hidden="true">↗</span>
-          </a>
+          <a class="story-link" href="experience.html">[VIEW EXPERIENCE] ↗</a>
         </div>
       </section>
 
       <section class="story-section story-approach" id="approach">
         <div class="section-wrap reveal">
-          <p class="section-index light-index">04 / HOW I WORK</p>
+          <p class="section-index">[04] HOW I WORK</p>
 
           <div class="approach-grid">
-            <h2 class="story-title light-title">Curious by default.</h2>
+            <h2 class="story-title">Curious by default.</h2>
 
-            <div class="principles">
-              <p>Diagnose the root cause before changing configuration.</p>
-              <p>Document changes, dependencies, and validated outcomes.</p>
-              <p>Apply least privilege and controlled access wherever appropriate.</p>
-              <p>Build solutions I can explain, reproduce, and support.</p>
+            <div class="principles terminal-panel">
+              <p><span>&gt;</span> Diagnose the root cause before changing configuration.</p>
+              <p><span>&gt;</span> Document changes, dependencies, and validated outcomes.</p>
+              <p><span>&gt;</span> Apply least privilege and controlled access wherever appropriate.</p>
+              <p><span>&gt;</span> Build solutions I can explain, reproduce, and support.</p>
             </div>
           </div>
         </div>
@@ -223,7 +205,7 @@
 
       <section class="story-section story-contact" id="contact">
         <div class="section-wrap contact-wrap reveal">
-          <p class="section-index">05 / CONTACT</p>
+          <p class="section-index">[05] CONTACT</p>
 
           <div>
             <h2 class="story-title contact-title">Let’s work together!</h2>
@@ -233,14 +215,12 @@
               Visit the contact page to connect with me.
             </p>
 
-            <a class="contact-button" href="contact.html">
-              Get in touch <span aria-hidden="true">↗</span>
-            </a>
+            <a class="contact-button" href="contact.html">[OPEN CONTACT] ↗</a>
           </div>
 
           <footer class="home-footer">
-            <span>Sidoney Wallen</span>
-            <a href="#top">Back to top ↑</a>
+            <span>SIDONEY WALLEN // PORTFOLIO v1.0</span>
+            <a href="#top">[BACK TO TOP] ↑</a>
           </footer>
         </div>
       </section>
