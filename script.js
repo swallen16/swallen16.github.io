@@ -1,5 +1,6 @@
 const landing = document.querySelector("#landing");
 const homePage = document.querySelector(".home-page");
+const reveals = document.querySelectorAll(".reveal");
 
 if (landing && homePage) {
   let ticking = false;
@@ -27,4 +28,25 @@ if (landing && homePage) {
   window.addEventListener("resize", requestLandingUpdate);
 
   updateLanding();
+}
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -8% 0px"
+    }
+  );
+
+  reveals.forEach((element) => revealObserver.observe(element));
+} else {
+  reveals.forEach((element) => element.classList.add("is-visible"));
 }
