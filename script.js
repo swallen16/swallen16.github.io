@@ -30,6 +30,91 @@ if (landing && homePage) {
   updateLanding();
 }
 
+const moduleForm = document.querySelector("#module-form");
+const moduleInput = document.querySelector("#module-input");
+const moduleFeedback = document.querySelector("#module-feedback");
+
+if (moduleForm && moduleInput && moduleFeedback) {
+  const modules = {
+    "1": "about.html",
+    "01": "about.html",
+    "2": "projects.html",
+    "02": "projects.html",
+    "3": "experience.html",
+    "03": "experience.html",
+    "4": "contact.html",
+    "04": "contact.html"
+  };
+
+  const moduleNames = {
+    "1": "ABOUT",
+    "01": "ABOUT",
+    "2": "PROJECTS",
+    "02": "PROJECTS",
+    "3": "EXPERIENCE",
+    "03": "EXPERIENCE",
+    "4": "CONTACT",
+    "04": "CONTACT"
+  };
+
+  const runModule = () => {
+    const value = moduleInput.value.trim();
+
+    if (!modules[value]) {
+      moduleFeedback.textContent = "ERROR: INVALID MODULE // ENTER 01-04";
+      moduleFeedback.classList.add("is-error");
+      moduleInput.value = "";
+      moduleInput.focus();
+      return;
+    }
+
+    moduleFeedback.classList.remove("is-error");
+    moduleFeedback.textContent = `LOADING MODULE: ${moduleNames[value]} ...`;
+
+    window.setTimeout(() => {
+      window.location.href = modules[value];
+    }, 180);
+  };
+
+  moduleForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    runModule();
+  });
+
+  moduleInput.addEventListener("input", () => {
+    moduleInput.value = moduleInput.value.replace(/[^0-9]/g, "").slice(0, 2);
+    moduleFeedback.classList.remove("is-error");
+    moduleFeedback.textContent = "PRESS ENTER TO LOAD MODULE";
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!landing || homePage.classList.contains("is-revealed")) return;
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+
+    const activeTag = document.activeElement?.tagName;
+    const isTypingElsewhere =
+      activeTag === "INPUT" ||
+      activeTag === "TEXTAREA" ||
+      activeTag === "SELECT";
+
+    if (!isTypingElsewhere && /^[1-4]$/.test(event.key)) {
+      event.preventDefault();
+      moduleInput.value = event.key;
+      moduleInput.focus();
+      moduleFeedback.classList.remove("is-error");
+      moduleFeedback.textContent = "PRESS ENTER TO LOAD MODULE";
+    }
+  });
+
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+
+  if (finePointer) {
+    window.setTimeout(() => {
+      if (window.scrollY < 10) moduleInput.focus();
+    }, 1350);
+  }
+}
+
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
