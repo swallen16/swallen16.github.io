@@ -26,7 +26,14 @@
     </nav>
   </header>
 
-  <main class="page-content projects-content">
+  <div class="module-statusbar" aria-label="Module status">
+    <span>[MODULE: PROJECTS]</span>
+    <span>PATH: /projects</span>
+    <span class="status-ok">STATUS: LOADED</span>
+  </div>
+
+  <main class="page-module page-content projects-content">
+    <div class="page-module-frame">
     <section class="projects-hero">
       <p class="page-kicker">02 · Work</p>
       <h1 class="page-title">Projects</h1>
@@ -248,6 +255,9 @@
         screenshots, implementation notes, troubleshooting decisions, and validation results.
       </p>
     </section>
+    </div>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
