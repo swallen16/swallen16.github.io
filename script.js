@@ -33,34 +33,48 @@ if (landing && homePage) {
 const moduleForm = document.querySelector("#module-form");
 const moduleInput = document.querySelector("#module-input");
 const moduleFeedback = document.querySelector("#module-feedback");
+const moduleLoader = document.querySelector("#module-loader");
+const loaderModule = document.querySelector("#loader-module");
+
+const moduleRoutes = {
+  "1": { name: "ABOUT", href: "about.html" },
+  "01": { name: "ABOUT", href: "about.html" },
+  "2": { name: "PROJECTS", href: "projects.html" },
+  "02": { name: "PROJECTS", href: "projects.html" },
+  "3": { name: "EXPERIENCE", href: "experience.html" },
+  "03": { name: "EXPERIENCE", href: "experience.html" },
+  "4": { name: "CONTACT", href: "contact.html" },
+  "04": { name: "CONTACT", href: "contact.html" }
+};
+
+const loadModule = (name, href) => {
+  if (!href) return;
+
+  if (moduleFeedback) {
+    moduleFeedback.classList.remove("is-error");
+    moduleFeedback.textContent = `ACCESS GRANTED // ${name}`;
+  }
+
+  if (loaderModule) {
+    loaderModule.textContent = `LOADING MODULE: ${name}`;
+  }
+
+  if (moduleLoader) {
+    moduleLoader.setAttribute("aria-hidden", "false");
+    document.body.classList.add("module-loading");
+  }
+
+  window.setTimeout(() => {
+    window.location.href = href;
+  }, 720);
+};
 
 if (moduleForm && moduleInput && moduleFeedback) {
-  const modules = {
-    "1": "about.html",
-    "01": "about.html",
-    "2": "projects.html",
-    "02": "projects.html",
-    "3": "experience.html",
-    "03": "experience.html",
-    "4": "contact.html",
-    "04": "contact.html"
-  };
-
-  const moduleNames = {
-    "1": "ABOUT",
-    "01": "ABOUT",
-    "2": "PROJECTS",
-    "02": "PROJECTS",
-    "3": "EXPERIENCE",
-    "03": "EXPERIENCE",
-    "4": "CONTACT",
-    "04": "CONTACT"
-  };
-
   const runModule = () => {
     const value = moduleInput.value.trim();
+    const route = moduleRoutes[value];
 
-    if (!modules[value]) {
+    if (!route) {
       moduleFeedback.textContent = "ERROR: INVALID MODULE // ENTER 01-04";
       moduleFeedback.classList.add("is-error");
       moduleInput.value = "";
@@ -68,12 +82,7 @@ if (moduleForm && moduleInput && moduleFeedback) {
       return;
     }
 
-    moduleFeedback.classList.remove("is-error");
-    moduleFeedback.textContent = `LOADING MODULE: ${moduleNames[value]} ...`;
-
-    window.setTimeout(() => {
-      window.location.href = modules[value];
-    }, 180);
+    loadModule(route.name, route.href);
   };
 
   moduleForm.addEventListener("submit", (event) => {
@@ -88,7 +97,7 @@ if (moduleForm && moduleInput && moduleFeedback) {
   });
 
   document.addEventListener("keydown", (event) => {
-    if (!landing || homePage.classList.contains("is-revealed")) return;
+    if (!landing || homePage?.classList.contains("is-revealed")) return;
     if (event.ctrlKey || event.metaKey || event.altKey) return;
 
     const activeTag = document.activeElement?.tagName;
@@ -113,6 +122,28 @@ if (moduleForm && moduleInput && moduleFeedback) {
       if (window.scrollY < 10) moduleInput.focus();
     }, 1350);
   }
+}
+
+document.querySelectorAll(".terminal-options a").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const text = link.textContent.toUpperCase();
+    let name = "MODULE";
+
+    if (text.includes("ABOUT")) name = "ABOUT";
+    else if (text.includes("PROJECT")) name = "PROJECTS";
+    else if (text.includes("EXPERIENCE")) name = "EXPERIENCE";
+    else if (text.includes("CONTACT")) name = "CONTACT";
+
+    loadModule(name, link.getAttribute("href"));
+  });
+});
+
+if (document.body.classList.contains("page-shell")) {
+  window.requestAnimationFrame(() => {
+    document.body.classList.add("module-ready");
+  });
 }
 
 if ("IntersectionObserver" in window) {
