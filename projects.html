@@ -3,38 +3,249 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Projects | Personal IT portfolio" />
-  <title>Projects | Portfolio</title>
+  <meta name="description" content="Technical projects by Sidoney Wallen." />
+  <title>Projects | Sidoney Wallen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="page-shell">
+
+<body class="page-shell projects-page">
   <header class="site-header">
     <div class="site-identity">
-      <a class="home-link" href="index.html" aria-label="Back to landing page">← Home</a>
+      <a class="home-link" href="index.html" aria-label="Back to home">← Home</a>
       <a class="brand" href="index.html">Sidoney Wallen</a>
     </div>
 
     <nav class="top-nav" aria-label="Main navigation">
       <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
+      <a href="projects.html" aria-current="page">Projects</a>
       <a href="experience.html">Experience</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="page-content">
-    <p class="page-kicker">02 · Work</p>
-    <h1 class="page-title">Projects</h1>
-    <p class="lead">This will become the home for your technical projects, labs, case studies, screenshots, GitHub repositories, and explanations of how you solved problems.</p>
+  <main class="page-content projects-content">
+    <section class="projects-hero">
+      <p class="page-kicker">02 · Work</p>
+      <h1 class="page-title">Projects</h1>
+      <p class="lead">
+        A selection of infrastructure, systems, cloud, and web projects that show how
+        I configure environments, troubleshoot issues, document technical decisions,
+        and validate that a solution works as intended.
+      </p>
+    </section>
 
-    <section class="placeholder-block">
-      <h2>Starter section</h2>
+    <section class="project-index" aria-label="Project list">
+      <article class="project-index-item">
+        <div class="project-index-number">01</div>
+
+        <div class="project-index-content">
+          <div class="project-index-heading">
+            <div>
+              <p class="project-type">Networking · Infrastructure</p>
+              <h2>Music Store Network Infrastructure</h2>
+            </div>
+            <span class="project-year">2026</span>
+          </div>
+
+          <p class="project-summary">
+            Designed and configured a multi-site network environment with routing,
+            switching, redundancy, DHCP, Linux services, and database connectivity.
+            The project focused on maintaining connectivity and service availability
+            during component failure.
+          </p>
+
+          <div class="project-tags" aria-label="Technologies used">
+            <span>Aruba 6300</span>
+            <span>OSPF</span>
+            <span>VRRP</span>
+            <span>Linux</span>
+            <span>DHCP</span>
+            <span>Apache</span>
+            <span>MariaDB</span>
+          </div>
+
+          <details class="project-details">
+            <summary>View project details</summary>
+            <div class="project-details-grid">
+              <div>
+                <h3>Focus</h3>
+                <p>
+                  Inter-site connectivity, redundant gateways, routing convergence,
+                  service availability, and end-to-end validation.
+                </p>
+              </div>
+              <div>
+                <h3>What I worked on</h3>
+                <p>
+                  VLAN configuration, OSPF adjacency, VRRP failover, Linux routing
+                  and NAT, DHCP, Apache/PHP services, MariaDB access, and troubleshooting
+                  connectivity between client, server, and network infrastructure.
+                </p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="project-index-item">
+        <div class="project-index-number">02</div>
+
+        <div class="project-index-content">
+          <div class="project-index-heading">
+            <div>
+              <p class="project-type">Systems Administration</p>
+              <h2>Windows Server Enterprise Labs</h2>
+            </div>
+            <span class="project-year">2026</span>
+          </div>
+
+          <p class="project-summary">
+            Built and administered Windows Server environments covering identity,
+            policy, certificate services, load balancing, and high-availability concepts.
+          </p>
+
+          <div class="project-tags" aria-label="Technologies used">
+            <span>AD DS</span>
+            <span>Group Policy</span>
+            <span>PKI</span>
+            <span>NLB</span>
+            <span>Failover Clustering</span>
+            <span>PowerShell</span>
+          </div>
+
+          <details class="project-details">
+            <summary>View project details</summary>
+            <div class="project-details-grid">
+              <div>
+                <h3>Focus</h3>
+                <p>
+                  Enterprise identity services, centralized policy management,
+                  certificate infrastructure, and service resiliency.
+                </p>
+              </div>
+              <div>
+                <h3>What I worked on</h3>
+                <p>
+                  Active Directory administration, Group Policy configuration,
+                  certificate authority and PKI concepts, Network Load Balancing,
+                  failover clustering, and Windows Server troubleshooting.
+                </p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="project-index-item">
+        <div class="project-index-number">03</div>
+
+        <div class="project-index-content">
+          <div class="project-index-heading">
+            <div>
+              <p class="project-type">Cloud · Microsoft Azure</p>
+              <h2>Azure Networking &amp; Availability Labs</h2>
+            </div>
+            <span class="project-year">2026</span>
+          </div>
+
+          <p class="project-summary">
+            Configured Azure networking and availability components to understand
+            how cloud resources are connected, governed, scaled, and made accessible
+            across different network boundaries.
+          </p>
+
+          <div class="project-tags" aria-label="Technologies used">
+            <span>Azure</span>
+            <span>VPN Gateway</span>
+            <span>VMSS</span>
+            <span>Traffic Manager</span>
+            <span>RBAC</span>
+            <span>Azure Policy</span>
+          </div>
+
+          <details class="project-details">
+            <summary>View project details</summary>
+            <div class="project-details-grid">
+              <div>
+                <h3>Focus</h3>
+                <p>
+                  Cloud networking, remote connectivity, scalability, traffic
+                  distribution, governance, and access control.
+                </p>
+              </div>
+              <div>
+                <h3>What I worked on</h3>
+                <p>
+                  VPN Gateway configuration, Virtual Machine Scale Sets,
+                  Traffic Manager, Azure Policy, RBAC, regional resource planning,
+                  and cloud networking fundamentals.
+                </p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="project-index-item">
+        <div class="project-index-number">04</div>
+
+        <div class="project-index-content">
+          <div class="project-index-heading">
+            <div>
+              <p class="project-type">Web · Analytics · Cloud</p>
+              <h2>Close Safely / Themis Lending</h2>
+            </div>
+            <span class="project-year">2026</span>
+          </div>
+
+          <p class="project-summary">
+            Contributed to a lending platform across frontend development,
+            deployment, analytics, DNS, content management, and cloud-based integrations.
+          </p>
+
+          <div class="project-tags" aria-label="Technologies used">
+            <span>Next.js</span>
+            <span>Tailwind CSS</span>
+            <span>Vercel</span>
+            <span>Cloudflare</span>
+            <span>GA4</span>
+            <span>GTM</span>
+            <span>Sanity</span>
+          </div>
+
+          <details class="project-details">
+            <summary>View project details</summary>
+            <div class="project-details-grid">
+              <div>
+                <h3>Focus</h3>
+                <p>
+                  Production web delivery, analytics instrumentation,
+                  deployment workflows, content management, and user-facing product work.
+                </p>
+              </div>
+              <div>
+                <h3>What I worked on</h3>
+                <p>
+                  Responsive UI development, deployment troubleshooting,
+                  Cloudflare DNS and Workers, GA4 event tracking, GTM consent configuration,
+                  Microsoft Clarity, Sanity CMS, metadata, and technical QA.
+                </p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+    </section>
+
+    <section class="projects-next">
+      <p class="page-kicker">NEXT</p>
+      <h2>Case studies are coming next.</h2>
       <p>
-        This page is intentionally simple. Replace this section with your real content as you build the portfolio.
-        The navigation and overall styling are already connected to the rest of the site.
+        Each project will eventually have its own page with architecture diagrams,
+        screenshots, implementation notes, troubleshooting decisions, and validation results.
       </p>
     </section>
   </main>
