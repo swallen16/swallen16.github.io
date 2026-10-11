@@ -210,6 +210,93 @@ h1, h2, h3, p { margin-top: 0; }
 
 @keyframes blink { 50% { opacity: 0; } }
 
+
+.terminal-command {
+  display: grid;
+  grid-template-columns: auto minmax(80px, 150px) auto auto;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  min-width: min(100%, 360px);
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--line-strong);
+  background: rgba(134,255,99,.025);
+}
+
+.terminal-command:focus-within {
+  border-color: var(--green);
+  box-shadow: 0 0 14px var(--glow);
+}
+
+.terminal-command-label,
+.terminal-command-input,
+.terminal-enter {
+  font-family: var(--font-ui);
+  font-size: clamp(.54rem, 1vw, .68rem);
+  line-height: 1.7;
+}
+
+.terminal-command-label {
+  color: var(--green-bright);
+}
+
+.terminal-command-input {
+  min-width: 0;
+  padding: 0;
+  color: var(--green-bright);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  caret-color: transparent;
+  font: inherit;
+}
+
+.terminal-command-input::selection {
+  color: var(--bg);
+  background: var(--green);
+}
+
+.command-cursor {
+  margin-left: -6px;
+  color: var(--green-bright);
+}
+
+.terminal-enter {
+  padding: 5px 7px;
+  color: var(--green-dim);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.terminal-enter:hover,
+.terminal-enter:focus-visible {
+  color: var(--green-bright);
+  outline: 1px solid var(--line-strong);
+}
+
+.terminal-feedback {
+  min-height: 1.5em;
+  margin: 0 0 12px;
+  color: var(--green-dim);
+  font-family: var(--font-ui);
+  font-size: clamp(.45rem, .85vw, .55rem);
+  line-height: 1.7;
+}
+
+.terminal-feedback.is-error {
+  color: var(--green-bright);
+  animation: errorFlash .16s steps(2,end) 2;
+}
+
+@keyframes errorFlash {
+  50% {
+    color: var(--bg);
+    background: var(--green);
+  }
+}
+
 .terminal-options {
   display: grid;
   border-top: 1px solid var(--line-strong);
@@ -803,6 +890,16 @@ h1, h2, h3, p { margin-top: 0; }
 
   .terminal-title h1 {
     font-size: clamp(3.5rem, 17vw, 6rem);
+  }
+
+  .terminal-command {
+    grid-template-columns: auto minmax(55px, 1fr) auto;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .terminal-enter {
+    display: none;
   }
 
   .terminal-options a {
