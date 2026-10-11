@@ -1,25 +1,30 @@
-const landing = document.querySelector('#landing');
+const landing = document.querySelector("#landing");
+const homePage = document.querySelector(".home-page");
 
-if (landing) {
+if (landing && homePage) {
   let ticking = false;
 
   const updateLanding = () => {
-    const distance = Math.min(window.scrollY, window.innerHeight);
-    const progress = distance / window.innerHeight;
+    const viewportHeight = Math.max(window.innerHeight, 1);
+    const distance = Math.min(Math.max(window.scrollY, 0), viewportHeight);
+    const progress = distance / viewportHeight;
 
-    landing.style.transform = `translateY(${-distance}px)`;
-    landing.style.opacity = String(1 - progress * 0.18);
+    document.documentElement.style.setProperty("--landing-y", `${-distance}px`);
+    document.documentElement.style.setProperty("--landing-progress", progress.toFixed(3));
 
+    homePage.classList.toggle("is-revealed", progress > 0.96);
     ticking = false;
   };
 
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateLanding);
-      ticking = true;
-    }
-  }, { passive: true });
+  const requestLandingUpdate = () => {
+    if (ticking) return;
 
-  window.addEventListener('resize', updateLanding);
+    ticking = true;
+    window.requestAnimationFrame(updateLanding);
+  };
+
+  window.addEventListener("scroll", requestLandingUpdate, { passive: true });
+  window.addEventListener("resize", requestLandingUpdate);
+
   updateLanding();
 }
