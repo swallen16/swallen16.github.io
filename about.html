@@ -18,14 +18,21 @@
     </div>
 
     <nav class="top-nav" aria-label="Main navigation">
-      <a href="about.html">About</a>
+      <a href="about.html" aria-current="page">About</a>
       <a href="projects.html">Projects</a>
       <a href="experience.html">Experience</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="page-content">
+  <div class="module-statusbar" aria-label="Module status">
+    <span>[MODULE: ABOUT]</span>
+    <span>PATH: /about</span>
+    <span class="status-ok">STATUS: LOADED</span>
+  </div>
+
+  <main class="page-module page-content">
+    <div class="page-module-frame">
     <p class="page-kicker">01 · About</p>
     <h1 class="page-title">About me</h1>
     <p class="lead">Use this page to introduce who you are, what you care about professionally, what you are learning, and the kind of work you want to do.</p>
@@ -37,6 +44,9 @@
         The navigation and overall styling are already connected to the rest of the site.
       </p>
     </section>
+    </div>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
