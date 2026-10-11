@@ -21,11 +21,18 @@
       <a href="about.html">About</a>
       <a href="projects.html">Projects</a>
       <a href="experience.html">Experience</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" aria-current="page">Contact</a>
     </nav>
   </header>
 
-  <main class="page-content">
+  <div class="module-statusbar" aria-label="Module status">
+    <span>[MODULE: CONTACT]</span>
+    <span>PATH: /contact</span>
+    <span class="status-ok">STATUS: LOADED</span>
+  </div>
+
+  <main class="page-module page-content">
+    <div class="page-module-frame">
     <p class="page-kicker">04 · Contact</p>
     <h1 class="page-title">Contact</h1>
     <p class="lead">Keep this page simple: email, LinkedIn, GitHub, and any other professional way you want recruiters or collaborators to reach you.</p>
@@ -37,6 +44,9 @@
         The navigation and overall styling are already connected to the rest of the site.
       </p>
     </section>
+    </div>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
