@@ -168,30 +168,72 @@ if ("IntersectionObserver" in window) {
 }
 
 
-const caseNavLinks = document.querySelectorAll(".case-section-nav a");
+const caseJump = document.querySelector(".case-jump");
+const caseJumpToggle = document.querySelector(".case-jump-toggle");
+const caseJumpLinks = document.querySelectorAll(".case-jump-menu a");
 const caseSections = document.querySelectorAll(".case-study-page .case-section[id]");
 
-if (caseNavLinks.length && caseSections.length && "IntersectionObserver" in window) {
-  const caseNavObserver = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+if (caseJump && caseJumpToggle && caseJumpLinks.length && caseSections.length) {
+  const closeCaseJump = () => {
+    caseJump.classList.remove("is-open");
+    caseJumpToggle.setAttribute("aria-expanded", "false");
+  };
 
-      if (!visible) return;
+  caseJumpToggle.addEventListener("click", () => {
+    const willOpen = !caseJump.classList.contains("is-open");
+    caseJump.classList.toggle("is-open", willOpen);
+    caseJumpToggle.setAttribute("aria-expanded", String(willOpen));
+  });
 
-      caseNavLinks.forEach((link) => {
-        const isActive = link.getAttribute("href") === `#${visible.target.id}`;
-        link.classList.toggle("is-active", isActive);
-        if (isActive) link.setAttribute("aria-current", "true");
-        else link.removeAttribute("aria-current");
+  caseJumpLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+      const target = document.querySelector(targetId);
+
+      if (!target) return;
+
+      event.preventDefault();
+      closeCaseJump();
+
+      target.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start"
       });
-    },
-    {
-      rootMargin: "-25% 0px -55% 0px",
-      threshold: [0.05, 0.2, 0.5]
-    }
-  );
 
-  caseSections.forEach((section) => caseNavObserver.observe(section));
+      history.replaceState(null, "", targetId);
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!caseJump.contains(event.target)) closeCaseJump();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeCaseJump();
+      caseJumpToggle.focus();
+    }
+  });
+
+  const updateActiveCaseSection = () => {
+    const marker = window.innerHeight * 0.32;
+    let activeSection = caseSections[0];
+
+    caseSections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= marker) {
+        activeSection = section;
+      }
+    });
+
+    caseJumpLinks.forEach((link) => {
+      const active = link.getAttribute("href") === `#${activeSection.id}`;
+      link.classList.toggle("is-active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  };
+
+  window.addEventListener("scroll", updateActiveCaseSection, { passive: true });
+  window.addEventListener("resize", updateActiveCaseSection);
+  updateActiveCaseSection();
 }
