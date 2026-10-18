@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Music Store Network case study by Sidoney Wallen." />
+  <title>Music Store Network | Sidoney Wallen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="page-shell case-study-page">
+  <header class="site-header">
+    <div class="site-identity">
+      <a class="home-link" href="../../projects.html">← Projects</a>
+      <a class="brand" href="../../index.html">Sidoney Wallen</a>
+    </div>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="../../about.html">About</a>
+      <a href="../../projects.html" aria-current="page">Projects</a>
+      <a href="../../experience.html">Experience</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="module-statusbar">
+    <span>[PROJECT: MUSIC STORE NETWORK]</span>
+    <span>PATH: /projects/music-store-network</span>
+    <span class="status-ok">STATUS: COMPLETE</span>
+  </div>
+
+  <main class="page-module page-content">
+    <div class="page-module-frame">
+      <section class="case-hero">
+        <p class="page-kicker">PROJECT 01 · NETWORKING / INFRASTRUCTURE</p>
+        <h1 class="page-title">Music Store Network</h1>
+        <p class="case-summary">
+          A semester-long capstone where I built a working branch network for a fictional music store,
+          connected it to other store locations, added a searchable inventory system, and helped build
+          a failover design that kept the network available if a main switch stopped working.
+        </p>
+        <div class="case-meta">
+          <div><span>YEAR</span><strong>2026</strong></div>
+          <div><span>ROLE</span><strong>Branch build + Stage 4 collaboration</strong></div>
+          <div><span>FOCUS</span><strong>Networking, Linux, services, redundancy</strong></div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-grid">
+          <div class="case-section-title"><p class="section-index">[01] CONTEXT</p><h2>What was I building?</h2></div>
+          <div class="case-copy">
+            <p>The project was based on a fictional music store with multiple locations. Each student represented one store branch and had to build the technology that branch would need to communicate with the rest of the company.</p>
+            <p>My branch included a client computer, a server, an Ubuntu router, and physical Aruba switches. The project started with basic connectivity and later added communication with other branches, Internet access, a web-based inventory search, security controls, and network redundancy.</p>
+            <div class="case-plain-note"><strong>In simple terms:</strong> I built one store's network, made it communicate with other stores, and then helped make sure the combined network could survive a switch failure.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-grid">
+          <div class="case-section-title"><p class="section-index">[02] GOAL</p><h2>What needed to work?</h2></div>
+          <div class="case-copy">
+            <p>A user at one branch needed to be able to use the network without knowing anything about the infrastructure behind it. The finished environment needed to give devices the correct network settings, connect them to local and remote systems, provide Internet access, and allow store inventory to be searched across connected branches.</p>
+            <p>The final stage added another requirement: if the main network switch failed, a backup switch needed to take over automatically so users could stay connected.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-grid">
+          <div class="case-section-title"><p class="section-index">[03] TOOLS</p><h2>What did I use?</h2></div>
+          <div class="case-copy">
+            <ul class="case-list">
+              <li><strong>VMware Workstation:</strong> ran the Ubuntu client, server, and router virtual machines.</li>
+              <li><strong>Aruba 6300 switches:</strong> connected devices and moved traffic between parts of the network.</li>
+              <li><strong>DHCP:</strong> automatically gave devices their IP address and gateway settings.</li>
+              <li><strong>OSPF:</strong> allowed network devices to share information about how to reach other networks.</li>
+              <li><strong>VRRP:</strong> created a backup gateway that could take over if the main switch failed.</li>
+              <li><strong>nftables / NAT:</strong> controlled traffic and allowed internal devices to reach the Internet through the Ubuntu router.</li>
+              <li><strong>Apache + PHP:</strong> hosted the inventory website.</li>
+              <li><strong>MariaDB:</strong> stored the music store inventory data.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-grid">
+          <div class="case-section-title"><p class="section-index">[04] DESIGN</p><h2>How did it work?</h2></div>
+          <div class="case-copy">
+            <p>The <strong>client</strong> represented an employee's computer. The <strong>server</strong> hosted the inventory website and database. The <strong>Ubuntu router</strong> connected the branch to other networks and provided Internet access.</p>
+            <p>The client and server did not connect directly to the Internet. Their traffic passed through the Ubuntu router, giving me one place to control how traffic entered and left the branch.</p>
+            <p>OSPF allowed the routers and switches to learn which path to use when traffic needed to reach another branch. Later, VRRP gave the network a shared virtual gateway so a backup switch could take over if the primary became unavailable.</p>
+            <pre class="case-architecture">EMPLOYEE CLIENT
+      │
+      ▼
+ARUBA SWITCHES ───────► BRANCH SERVER
+      │                  Apache / PHP
+      │                  MariaDB inventory
+      ▼
+UBUNTU ROUTER
+      │
+      ├──────────────► OTHER STORE BRANCHES
+      │
+      └──────────────► INTERNET</pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-grid">
+          <div class="case-section-title"><p class="section-index">[05] BUILD</p><h2>How the project grew</h2></div>
+          <div class="case-copy">
+            <div class="case-stages">
+              <article class="case-stage"><span>STAGE 01</span><h3>Build the branch</h3><p>I created the Ubuntu client, server, and router virtual machines and installed the software needed for networking, web services, database services, firewalling, and troubleshooting.</p></article>
+              <article class="case-stage"><span>STAGE 02</span><h3>Make the network communicate</h3><p>I connected the branch to the Aruba switches, configured automatic IP addressing, set up the Ubuntu router, enabled Internet access, and used OSPF so the branch could learn how to reach other networks.</p></article>
+              <article class="case-stage"><span>STAGE 03</span><h3>Add the inventory system</h3><p>I configured MariaDB and hosted a PHP inventory website with Apache. Users could search inventory using details such as instrument type, condition, and price. The application used a read-only database account.</p></article>
+              <article class="case-stage"><span>STAGE 04</span><h3>Add failover</h3><p>My partner and I connected our completed networks, adjusted the Aruba switch configurations, and added VRRP. We deliberately removed the main switch from service and confirmed that the backup switch took over the gateway role.</p></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-grid">
+          <div class="case-section-title"><p class="section-index">[06] TROUBLESHOOTING</p><h2>What went wrong?</h2></div>
+          <div class="case-copy">
+            <p>Not everything worked on the first try. One early problem was getting the Ubuntu router to communicate with the rest of the network. I checked the interface settings, IP address, next hop, and routing table until I found where communication was breaking down.</p>
+            <p>I also had situations where the client could communicate locally but could not reach the Internet. That pushed me to check the entire path: the router's forwarding settings, firewall rules, NAT, and the route toward the upstream network.</p>
+            <p>When OSPF was involved, I learned that entering a configuration was not enough. I needed to confirm that the devices had actually formed a neighbor relationship and learned the expected routes.</p>
+            <p>Stage 4 introduced another challenge: two networks that worked independently did not automatically work together. My partner and I had to compare VLANs, trunks, routes, and VRRP settings and make changes so the combined design behaved as one network.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-grid">
+          <div class="case-section-title"><p class="section-index">[07] TESTING</p><h2>How did I prove it worked?</h2></div>
+          <div class="case-copy">
+            <p>I tested the environment throughout the project rather than waiting until the end. I checked that the client received the correct network settings, verified communication between the client, router, and server, and tested Internet access.</p>
+            <p>I used traceroute to see the path traffic was taking. For OSPF, I checked neighbor status and the routing table to confirm the branch was actually learning how to reach other networks.</p>
+            <p>The final validation was the failover test: my switch normally stayed in the backup role, became the active gateway when the primary was removed, and returned to backup after the primary recovered.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-grid">
+          <div class="case-section-title"><p class="section-index">[08] SECURITY</p><h2>How was it protected?</h2></div>
+          <div class="case-copy">
+            <p>The client and server were not given their own direct Internet connections. Their traffic passed through the Ubuntu router, where nftables controlled forwarding and NAT.</p>
+            <p>VLANs separated logical parts of the network, SSH was used for remote administration, and the inventory website used a read-only MariaDB account. That meant the application could retrieve inventory without needing administrative database permissions.</p>
+            <p>VRRP also improved availability by reducing the risk of the primary gateway becoming a single point of failure.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-grid">
+          <div class="case-section-title"><p class="section-index">[09] REFLECTION</p><h2>What did I learn?</h2></div>
+          <div class="case-copy">
+            <p>My biggest lesson was how important <strong>time management</strong> is in technical work. Even with an entire semester, progress depended on limited switch availability, other students finishing their configurations, collecting the required screenshots, and getting each stage inspected before moving on.</p>
+            <p>I learned to prepare before I had access to the equipment, ask questions earlier, and keep track of what still depended on another person or resource. I also became much more comfortable troubleshooting. A failed connection stopped feeling like proof that everything was wrong and became information I could use to narrow down the problem.</p>
+            <p>Stage 4 also changed how I thought about collaboration. It was not just about splitting tasks. My partner and I had to compare our configurations, agree on changes, and test two independently built networks as one system.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-section-grid">
+          <div class="case-section-title"><p class="section-index">[10] EVIDENCE</p><h2>Screenshots</h2></div>
+          <div class="case-copy">
+            <p>These screenshots show the main checkpoints from the project: addressing, Internet access, routing, and the Stage 4 failover sequence.</p>
+            <div class="case-evidence-grid">
+              <figure class="case-evidence"><img src="../../assets/music-store-network/01-client-vlan-routing.png" alt="Ubuntu client IP address and routing table"><figcaption><strong>Client addressing</strong> The client received its VLAN address and default gateway.</figcaption></figure>
+              <figure class="case-evidence"><img src="../../assets/music-store-network/02-router-connectivity.png" alt="Ubuntu router connectivity tests"><figcaption><strong>Router connectivity</strong> The router reached the upstream network and Internet.</figcaption></figure>
+              <figure class="case-evidence"><img src="../../assets/music-store-network/03-nftables-nat.png" alt="nftables forwarding and NAT rules"><figcaption><strong>Firewall and NAT</strong> Internal traffic was forwarded through the Ubuntu router.</figcaption></figure>
+              <figure class="case-evidence"><img src="../../assets/music-store-network/04-client-traceroute.png" alt="Client traceroute output"><figcaption><strong>Traffic path</strong> Traceroute verified how traffic left the branch.</figcaption></figure>
+              <figure class="case-evidence"><img src="../../assets/music-store-network/05-ospf-status.png" alt="OSPF status output"><figcaption><strong>OSPF status</strong> The router was participating in dynamic routing.</figcaption></figure>
+              <figure class="case-evidence"><img src="../../assets/music-store-network/06-ospf-neighbor.png" alt="OSPF neighbor output"><figcaption><strong>OSPF neighbor</strong> A formed adjacency confirmed routing information was being exchanged.</figcaption></figure>
+              <figure class="case-evidence"><img src="../../assets/music-store-network/07-routing-table.png" alt="Routing table output"><figcaption><strong>Routing table</strong> The router had connected and learned paths.</figcaption></figure>
+              <figure class="case-evidence"><img src="../../assets/music-store-network/08-vrrp-backup.png" alt="VRRP backup state"><figcaption><strong>Before failure</strong> My switch was ready in the BACKUP role.</figcaption></figure>
+              <figure class="case-evidence"><img src="../../assets/music-store-network/09-vrrp-failover-master.png" alt="VRRP master state during failover"><figcaption><strong>During failure</strong> The backup switch became MASTER.</figcaption></figure>
+              <figure class="case-evidence"><img src="../../assets/music-store-network/10-vrrp-recovery-backup.png" alt="VRRP backup state after recovery"><figcaption><strong>After recovery</strong> The switches returned to their expected roles.</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-end">
+        <p class="page-kicker">END OF PROJECT RECORD</p>
+        <h2>Back to the project index.</h2>
+        <a class="case-back-link" href="../../projects.html">[VIEW ALL PROJECTS] ↗</a>
+      </section>
+    </div>
+  </main>
+  <script src="../../script.js"></script>
+</body>
+</html>
