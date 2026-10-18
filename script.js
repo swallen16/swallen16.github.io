@@ -166,3 +166,32 @@ if ("IntersectionObserver" in window) {
 } else {
   reveals.forEach((element) => element.classList.add("is-visible"));
 }
+
+
+const caseNavLinks = document.querySelectorAll(".case-section-nav a");
+const caseSections = document.querySelectorAll(".case-study-page .case-section[id]");
+
+if (caseNavLinks.length && caseSections.length && "IntersectionObserver" in window) {
+  const caseNavObserver = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible) return;
+
+      caseNavLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${visible.target.id}`;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    },
+    {
+      rootMargin: "-25% 0px -55% 0px",
+      threshold: [0.05, 0.2, 0.5]
+    }
+  );
+
+  caseSections.forEach((section) => caseNavObserver.observe(section));
+}
