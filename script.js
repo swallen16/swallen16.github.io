@@ -3,36 +3,16 @@ const homePage = document.querySelector(".home-page");
 const reveals = document.querySelectorAll(".reveal");
 
 if (landing && homePage) {
-  let ticking = false;
-
-  const updateLanding = () => {
-    const viewportHeight = Math.max(
-      window.visualViewport?.height || window.innerHeight,
-      1
-    );
-    const distance = Math.min(Math.max(window.scrollY, 0), viewportHeight);
-    const progress = distance / viewportHeight;
-
-    document.documentElement.style.setProperty("--landing-y", `${-distance}px`);
-    document.documentElement.style.setProperty("--landing-progress", progress.toFixed(3));
-
-    homePage.classList.toggle("is-revealed", progress > 0.96);
-    ticking = false;
+  const updateLandingState = () => {
+    const landingBottom = landing.getBoundingClientRect().bottom;
+    homePage.classList.toggle("is-revealed", landingBottom <= 80);
   };
 
-  const requestLandingUpdate = () => {
-    if (ticking) return;
+  window.addEventListener("scroll", updateLandingState, { passive: true });
+  window.addEventListener("resize", updateLandingState);
+  window.addEventListener("orientationchange", updateLandingState);
 
-    ticking = true;
-    window.requestAnimationFrame(updateLanding);
-  };
-
-  window.addEventListener("scroll", requestLandingUpdate, { passive: true });
-  window.addEventListener("resize", requestLandingUpdate);
-  window.addEventListener("orientationchange", requestLandingUpdate);
-  window.visualViewport?.addEventListener("resize", requestLandingUpdate);
-
-  updateLanding();
+  updateLandingState();
 }
 
 const moduleForm = document.querySelector("#module-form");
