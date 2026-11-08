@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Technical projects by Sidoney Wallen." />
   <title>Projects | Sidoney Wallen</title>
+  <meta name="theme-color" content="#020602" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Press+Start+2P&amp;family=VT323&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body class="page-shell projects-page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="site-identity">
       <a class="home-link" href="index.html" aria-label="Back to home">← Home</a>
@@ -23,6 +25,7 @@
       <a href="projects.html" aria-current="page">Projects</a>
       <a href="experience.html">Experience</a>
       <a href="contact.html">Contact</a>
+      <a href="resume.html">Resume</a>
     </nav>
   </header>
 
@@ -32,7 +35,7 @@
     <span class="status-ok">STATUS: LOADED</span>
   </div>
 
-  <main class="page-module page-content projects-content">
+  <main id="main-content" class="page-module page-content projects-content">
     <div class="page-module-frame">
     <section class="projects-hero">
       <p class="page-kicker">02 · Work</p>
@@ -58,10 +61,9 @@
           </div>
 
           <p class="project-summary">
-            Designed and configured a multi-site network environment with routing,
-            switching, redundancy, DHCP, Linux services, and database connectivity.
-            The project focused on maintaining connectivity and service availability
-            during component failure.
+            Built one branch of a fictional multi-site music store network, then collaborated on the final
+            redundant design. I configured routing, switching, Linux services, Internet access, and
+            inventory connectivity, then helped test whether the network stayed available during switch failure.
           </p>
 
           <div class="project-tags" aria-label="Technologies used">
@@ -80,16 +82,16 @@
               <div>
                 <h3>Focus</h3>
                 <p>
-                  Inter-site connectivity, redundant gateways, routing convergence,
-                  service availability, and end-to-end validation.
+                  Reliable branch connectivity, redundant gateways, routing, service availability,
+                  and proving the design worked through end-to-end testing.
                 </p>
               </div>
               <div>
                 <h3>What I worked on</h3>
                 <p>
-                  VLAN configuration, OSPF adjacency, VRRP failover, Linux routing
-                  and NAT, DHCP, Apache/PHP services, MariaDB access, and troubleshooting
-                  connectivity between client, server, and network infrastructure.
+                  VLANs, OSPF, VRRP failover, Linux routing and nftables/NAT, DHCP,
+                  Apache/PHP, MariaDB, and troubleshooting the full path between client,
+                  server, branch infrastructure, other networks, and the Internet.
                 </p>
               </div>
             </div>
@@ -99,8 +101,45 @@
         </div>
       </article>
 
-      <article class="project-index-item">
+      <article class="project-index-item" id="iam-automation">
         <div class="project-index-number">02</div>
+        <div class="project-index-content">
+          <div class="project-index-heading">
+            <div>
+              <p class="project-type">Identity &amp; Access Management · PowerShell · Bash</p>
+              <h2>IAM Lifecycle Automation Lab</h2>
+            </div>
+            <span class="project-year project-status">IN PROGRESS</span>
+          </div>
+          <p class="project-summary">
+            Building a simulated identity lifecycle for a fictional organization so access decisions
+            are based on defined rules instead of one-off manual assignments. The lab models
+            Joiner-Mover-Leaver workflows, RBAC, least privilege, access reviews, and audit logging.
+          </p>
+          <div class="project-tags" aria-label="Technologies and concepts used">
+            <span>PowerShell</span><span>Bash</span><span>RBAC</span><span>Least Privilege</span>
+            <span>JML</span><span>CSV / JSON</span><span>Access Reviews</span>
+          </div>
+          <details class="project-details">
+            <summary>View project details</summary>
+            <div class="project-details-grid">
+              <div>
+                <h3>Problem</h3>
+                <p>Manual access assignment is inconsistent and makes it easier for users to keep permissions they no longer need. The project asks: based on a user's identity, department, role, and status, what access should they have?</p>
+              </div>
+              <div>
+                <h3>What I’m building</h3>
+                <p>HR-style CSV inputs feed a role-based policy that calculates expected groups, updates lifecycle state, flags excess managed access, and records changes for review. I’m implementing the workflow in PowerShell and Bash so I can compare how the same IAM logic maps across different administration environments.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+
+
+      <article class="project-index-item">
+        <div class="project-index-number">03</div>
 
         <div class="project-index-content">
           <div class="project-index-heading">
@@ -149,7 +188,7 @@
       </article>
 
       <article class="project-index-item">
-        <div class="project-index-number">03</div>
+        <div class="project-index-number">04</div>
 
         <div class="project-index-content">
           <div class="project-index-heading">
@@ -199,7 +238,7 @@
       </article>
 
       <article class="project-index-item">
-        <div class="project-index-number">04</div>
+        <div class="project-index-number">05</div>
 
         <div class="project-index-content">
           <div class="project-index-heading">
@@ -253,8 +292,8 @@
       <p class="page-kicker">NEXT</p>
       <h2>More case studies are coming.</h2>
       <p>
-        The Music Store Network case study is now available. I’ll continue adding
-        project pages with screenshots, troubleshooting notes, and validation results.
+        The Music Store Network case study is available now. The IAM Lifecycle Automation Lab is
+        currently being built and reviewed before it becomes a full case study.
       </p>
     </section>
     </div>
