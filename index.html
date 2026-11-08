@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Sidoney Wallen's IT portfolio." />
   <title>Sidoney Wallen | Portfolio</title>
+  <meta name="theme-color" content="#020602" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Press+Start+2P&amp;family=VT323&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body class="home-page" id="top">
+  <a class="skip-link" href="#hello">Skip boot menu</a>
   <main class="home-shell">
     <section class="landing terminal-landing" id="landing" aria-labelledby="landing-title">
       <div class="landing-inner">
@@ -26,7 +31,7 @@
 
           <div class="terminal-title boot-line boot-4">
             <h1 id="landing-title">SIDONEY WALLEN</h1>
-            <p>IT PORTFOLIO v1.0</p>
+            <p>IT SUPPORT · SYSTEMS · IDENTITY</p>
           </div>
 
           <div class="terminal-menu boot-line boot-5">
@@ -43,7 +48,7 @@
                 pattern="[0-9]*"
                 maxlength="2"
                 aria-describedby="module-feedback"
-                aria-label="Enter module number 1 through 4"
+                aria-label="Enter module number 1 through 5"
                 spellcheck="false"
               />
               <span class="terminal-cursor command-cursor" aria-hidden="true">_</span>
@@ -51,7 +56,7 @@
             </form>
 
             <p class="terminal-feedback" id="module-feedback" aria-live="polite">
-              ENTER MODULE NUMBER [01-04]
+              ENTER MODULE NUMBER [01-05]
             </p>
 
             <nav class="terminal-options" aria-label="Portfolio navigation">
@@ -59,6 +64,7 @@
               <a href="projects.html"><span>[02]</span> PROJECTS PLEASE</a>
               <a href="experience.html"><span>[03]</span> EXPERIENCE</a>
               <a href="contact.html"><span>[04]</span> CONTACT</a>
+              <a href="resume.html"><span>[05]</span> RESUME</a>
             </nav>
           </div>
 
@@ -101,23 +107,28 @@
 
           <div class="story-intro-grid">
             <div>
-              <h2 class="story-title">Identity. Access. Trust.</h2>
+              <h2 class="story-title">Support. Systems. Access.</h2>
             </div>
 
             <div class="story-copy-column terminal-panel">
               <p class="story-lead">
-                I’m especially interested in Identity & Access Management: how organizations
-                secure digital identities, enforce access controls, and ensure users
-                have the appropriate permissions to the resources they need.
+                I’m an IT support professional and Computer Systems Technician graduate who enjoys
+                solving the stubborn issues that interrupt someone’s day.
               </p>
 
               <p class="story-body">
-                Hands-on experience with Active Directory, Microsoft 365, MFA, user lifecycle
-                administration, credential recovery, and access troubleshooting shaped this focus.
-                I’m expanding that foundation through Microsoft Entra ID, RBAC, least privilege,
-                SSO, and access governance.
+                My hands-on experience includes Windows 10/11, Active Directory, Microsoft 365,
+                Intune device setup, MFA, VPN troubleshooting, user onboarding/offboarding, endpoint
+                support, and PowerShell. I’m also building deeper knowledge in systems administration
+                and identity &amp; access management.
               </p>
 
+              <div class="recruiter-actions" aria-label="Recruiter quick links">
+                <a href="resume.html">[RESUME]</a>
+                <a href="https://ca.linkedin.com/in/sidoney-wallen-956933263" target="_blank" rel="noopener noreferrer">[LINKEDIN]</a>
+                <a href="https://github.com/swallen16" target="_blank" rel="noopener noreferrer">[GITHUB]</a>
+                <a href="contact.html">[CONTACT]</a>
+              </div>
               <a class="story-link" href="about.html">[OPEN ABOUT] ↗</a>
             </div>
           </div>
@@ -151,17 +162,16 @@
             <article class="project-row reveal">
               <div class="project-meta">
                 <span>[02]</span>
-                <span>WEB / ANALYTICS / CLOUD</span>
+                <span>IAM / POWERSHELL / BASH · IN PROGRESS</span>
               </div>
               <div class="project-main">
-                <h3>Close Safely / Themis Lending</h3>
+                <h3>IAM Lifecycle Automation Lab</h3>
                 <p>
-                  Implemented frontend and infrastructure components across Next.js,
-                  deployment workflows, DNS, analytics instrumentation, and cloud-based
-                  integrations for a lending platform.
+                  Building a simulated Joiner-Mover-Leaver workflow that turns HR-style identity data
+                  into role-based access decisions, flags excess permissions, and records changes for review.
                 </p>
               </div>
-              <a class="project-arrow" href="projects.html" aria-label="View projects">↗</a>
+              <a class="project-arrow" href="projects.html#iam-automation" aria-label="View IAM automation project">↗</a>
             </article>
 
             <article class="project-row reveal">
@@ -210,6 +220,7 @@
                 <span>MFA</span>
                 <span>VPN</span>
                 <span>WINDOWS</span>
+                <span>POWERSHELL</span>
               </div>
             </div>
           </div>
@@ -242,8 +253,7 @@
           <div>
             <h2 class="story-title contact-title">Let’s work together!</h2>
             <p class="story-body contact-copy">
-              I’m interested in opportunities involving Identity & Access Management,
-              Microsoft environments, systems administration, and technical support.
+              I’m interested in IT Support, Service Desk, Desktop Support, Junior Systems Administration, and IAM-adjacent opportunities.
               Visit the contact page to connect with me.
             </p>
 
