@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Music Store Network case study by Sidoney Wallen." />
   <title>Music Store Network | Sidoney Wallen</title>
+  <meta name="theme-color" content="#020602" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Press+Start+2P&amp;family=VT323&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body class="page-shell case-study-page" id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="site-identity">
       <a class="home-link" href="../../projects.html">← Projects</a>
@@ -21,6 +23,7 @@
       <a href="../../projects.html" aria-current="page">Projects</a>
       <a href="../../experience.html">Experience</a>
       <a href="../../contact.html">Contact</a>
+      <a href="../../resume.html">Resume</a>
     </nav>
   </header>
 
@@ -30,7 +33,7 @@
     <span class="status-ok">STATUS: COMPLETE</span>
   </div>
 
-  <main class="page-module page-content">
+  <main id="main-content" class="page-module page-content">
     <div class="page-module-frame">
       <section class="case-hero">
         <p class="page-kicker">PROJECT 01 · NETWORKING / INFRASTRUCTURE</p>
@@ -178,16 +181,16 @@ UBUNTU ROUTER
           <div class="case-copy">
             <p>These screenshots show the main checkpoints from the project: addressing, Internet access, routing, and the Stage 4 failover sequence.</p>
             <div class="case-evidence-grid">
-              <figure class="case-evidence"><img src="../../assets/music-store-network/01-client-vlan-routing.png" alt="Ubuntu client IP address and routing table"><figcaption><strong>Client addressing</strong> The client received its VLAN address and default gateway.</figcaption></figure>
-              <figure class="case-evidence"><img src="../../assets/music-store-network/02-router-connectivity.png" alt="Ubuntu router connectivity tests"><figcaption><strong>Router connectivity</strong> The router reached the upstream network and Internet.</figcaption></figure>
-              <figure class="case-evidence"><img src="../../assets/music-store-network/03-nftables-nat.png" alt="nftables forwarding and NAT rules"><figcaption><strong>Firewall and NAT</strong> Internal traffic was forwarded through the Ubuntu router.</figcaption></figure>
-              <figure class="case-evidence"><img src="../../assets/music-store-network/04-client-traceroute.png" alt="Client traceroute output"><figcaption><strong>Traffic path</strong> Traceroute verified how traffic left the branch.</figcaption></figure>
-              <figure class="case-evidence"><img src="../../assets/music-store-network/05-ospf-status.png" alt="OSPF status output"><figcaption><strong>OSPF status</strong> The router was participating in dynamic routing.</figcaption></figure>
-              <figure class="case-evidence"><img src="../../assets/music-store-network/06-ospf-neighbor.png" alt="OSPF neighbor output"><figcaption><strong>OSPF neighbor</strong> A formed adjacency confirmed routing information was being exchanged.</figcaption></figure>
-              <figure class="case-evidence"><img src="../../assets/music-store-network/07-routing-table.png" alt="Routing table output"><figcaption><strong>Routing table</strong> The router had connected and learned paths.</figcaption></figure>
-              <figure class="case-evidence"><img src="../../assets/music-store-network/08-vrrp-backup.png" alt="VRRP backup state"><figcaption><strong>Before failure</strong> My switch was ready in the BACKUP role.</figcaption></figure>
-              <figure class="case-evidence"><img src="../../assets/music-store-network/09-vrrp-failover-master.png" alt="VRRP master state during failover"><figcaption><strong>During failure</strong> The backup switch became MASTER.</figcaption></figure>
-              <figure class="case-evidence"><img src="../../assets/music-store-network/10-vrrp-recovery-backup.png" alt="VRRP backup state after recovery"><figcaption><strong>After recovery</strong> The switches returned to their expected roles.</figcaption></figure>
+              <figure class="case-evidence"><img loading="lazy" decoding="async" src="../../assets/music-store-network/01-client-vlan-routing.png" alt="Ubuntu client IP address and routing table"><figcaption><strong>Client addressing</strong> The client received its VLAN address and default gateway.</figcaption></figure>
+              <figure class="case-evidence"><img loading="lazy" decoding="async" src="../../assets/music-store-network/02-router-connectivity.png" alt="Ubuntu router connectivity tests"><figcaption><strong>Router connectivity</strong> The router reached the upstream network and Internet.</figcaption></figure>
+              <figure class="case-evidence"><img loading="lazy" decoding="async" src="../../assets/music-store-network/03-nftables-nat.png" alt="nftables forwarding and NAT rules"><figcaption><strong>Firewall and NAT</strong> Internal traffic was forwarded through the Ubuntu router.</figcaption></figure>
+              <figure class="case-evidence"><img loading="lazy" decoding="async" src="../../assets/music-store-network/04-client-traceroute.png" alt="Client traceroute output"><figcaption><strong>Traffic path</strong> Traceroute verified how traffic left the branch.</figcaption></figure>
+              <figure class="case-evidence"><img loading="lazy" decoding="async" src="../../assets/music-store-network/05-ospf-status.png" alt="OSPF status output"><figcaption><strong>OSPF status</strong> The router was participating in dynamic routing.</figcaption></figure>
+              <figure class="case-evidence"><img loading="lazy" decoding="async" src="../../assets/music-store-network/06-ospf-neighbor.png" alt="OSPF neighbor output"><figcaption><strong>OSPF neighbor</strong> A formed adjacency confirmed routing information was being exchanged.</figcaption></figure>
+              <figure class="case-evidence"><img loading="lazy" decoding="async" src="../../assets/music-store-network/07-routing-table.png" alt="Routing table output"><figcaption><strong>Routing table</strong> The router had connected and learned paths.</figcaption></figure>
+              <figure class="case-evidence"><img loading="lazy" decoding="async" src="../../assets/music-store-network/08-vrrp-backup.png" alt="VRRP backup state"><figcaption><strong>Before failure</strong> My switch was ready in the BACKUP role.</figcaption></figure>
+              <figure class="case-evidence"><img loading="lazy" decoding="async" src="../../assets/music-store-network/09-vrrp-failover-master.png" alt="VRRP master state during failover"><figcaption><strong>During failure</strong> The backup switch became MASTER.</figcaption></figure>
+              <figure class="case-evidence"><img loading="lazy" decoding="async" src="../../assets/music-store-network/10-vrrp-recovery-backup.png" alt="VRRP backup state after recovery"><figcaption><strong>After recovery</strong> The switches returned to their expected roles.</figcaption></figure>
             </div>
           </div>
         </div>
