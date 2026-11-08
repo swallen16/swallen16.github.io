@@ -1,30 +1,25 @@
-# Portfolio Base
+# Sidoney Wallen — IT Portfolio
 
-A simple static portfolio starter built for GitHub Pages.
+Static GitHub Pages portfolio for IT Support, Service Desk, Desktop Support, Junior Systems Administration, and IAM-adjacent opportunities.
 
-## Files
+## Main pages
 
-- `index.html` — scroll-driven landing page
-- `about.html` — About page
-- `projects.html` — Projects page
-- `experience.html` — Experience page
-- `contact.html` — Contact page
-- `styles.css` — all site styling
-- `script.js` — landing-page scroll animation
+- `index.html` — retro boot-menu homepage and recruiter overview
+- `about.html` — background, working style, interests, and goals
+- `projects.html` — infrastructure, systems, cloud, web, and IAM projects
+- `experience.html` — professional and project experience
+- `contact.html` — email, LinkedIn, GitHub, and resume access
+- `resume.html` — mobile-friendly, printable resume
+- `projects/music-store-network/` — detailed Music Store Network case study
 
-## Customize first
+## Design
 
-1. Replace `Your Name` in the HTML files.
-2. Edit the four landing-button labels whenever you decide on final wording.
-3. Replace each page's starter content with your real content.
-4. Change typography, spacing, colors, and animation in `styles.css`.
+The site uses a green phosphor / CRT terminal aesthetic while keeping normal HTML links, keyboard navigation, reduced-motion support, responsive layouts, and printable resume styles.
 
-## GitHub Pages
+## Mobile behavior
 
-Upload these files to the root of a GitHub Pages repository. `index.html` is the homepage.
+The boot screen uses dynamic viewport units and safe-area spacing. Short-height and landscape layouts compress nonessential boot text so navigation stays visible without clipping.
 
-## Landing interaction
+## Deployment
 
-The landing section is fixed over the page. As the visitor scrolls, JavaScript translates the entire landing panel upward until the dark underlay is revealed.
-
-The four buttons use normal HTML links, so they remain accessible and work even without JavaScript.
+GitHub Pages deploys from the `main` branch.
