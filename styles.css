@@ -73,8 +73,7 @@ h1, h2, h3, p { margin-top: 0; }
 .home-shell { position: relative; }
 
 .landing {
-  position: fixed;
-  inset: 0;
+  position: relative;
   z-index: 20;
   min-height: 100svh;
   min-height: 100dvh;
@@ -82,9 +81,6 @@ h1, h2, h3, p { margin-top: 0; }
   place-items: center;
   overflow: hidden;
   background: var(--bg);
-  transform: translate3d(0, var(--landing-y), 0);
-  opacity: calc(1 - (var(--landing-progress) * .06));
-  will-change: transform, opacity;
 }
 
 .landing-inner {
@@ -356,10 +352,8 @@ h1, h2, h3, p { margin-top: 0; }
   line-height: 1.7;
 }
 
-.home-page.is-revealed .landing { pointer-events: none; }
 .landing-spacer {
-  height: 100svh;
-  height: 100dvh;
+  display: none;
 }
 
 /* GUIDED HOME */
