@@ -6,7 +6,10 @@ if (landing && homePage) {
   let ticking = false;
 
   const updateLanding = () => {
-    const viewportHeight = Math.max(window.innerHeight, 1);
+    const viewportHeight = Math.max(
+      window.visualViewport?.height || window.innerHeight,
+      1
+    );
     const distance = Math.min(Math.max(window.scrollY, 0), viewportHeight);
     const progress = distance / viewportHeight;
 
@@ -26,6 +29,8 @@ if (landing && homePage) {
 
   window.addEventListener("scroll", requestLandingUpdate, { passive: true });
   window.addEventListener("resize", requestLandingUpdate);
+  window.addEventListener("orientationchange", requestLandingUpdate);
+  window.visualViewport?.addEventListener("resize", requestLandingUpdate);
 
   updateLanding();
 }
@@ -44,7 +49,9 @@ const moduleRoutes = {
   "3": { name: "EXPERIENCE", href: "experience.html" },
   "03": { name: "EXPERIENCE", href: "experience.html" },
   "4": { name: "CONTACT", href: "contact.html" },
-  "04": { name: "CONTACT", href: "contact.html" }
+  "04": { name: "CONTACT", href: "contact.html" },
+  "5": { name: "RESUME", href: "resume.html" },
+  "05": { name: "RESUME", href: "resume.html" }
 };
 
 const loadModule = (name, href) => {
@@ -75,7 +82,7 @@ if (moduleForm && moduleInput && moduleFeedback) {
     const route = moduleRoutes[value];
 
     if (!route) {
-      moduleFeedback.textContent = "ERROR: INVALID MODULE // ENTER 01-04";
+      moduleFeedback.textContent = "ERROR: INVALID MODULE // ENTER 01-05";
       moduleFeedback.classList.add("is-error");
       moduleInput.value = "";
       moduleInput.focus();
@@ -106,7 +113,7 @@ if (moduleForm && moduleInput && moduleFeedback) {
       activeTag === "TEXTAREA" ||
       activeTag === "SELECT";
 
-    if (!isTypingElsewhere && /^[1-4]$/.test(event.key)) {
+    if (!isTypingElsewhere && /^[1-5]$/.test(event.key)) {
       event.preventDefault();
       moduleInput.value = event.key;
       moduleInput.focus();
@@ -135,6 +142,7 @@ document.querySelectorAll(".terminal-options a").forEach((link) => {
     else if (text.includes("PROJECT")) name = "PROJECTS";
     else if (text.includes("EXPERIENCE")) name = "EXPERIENCE";
     else if (text.includes("CONTACT")) name = "CONTACT";
+    else if (text.includes("RESUME")) name = "RESUME";
 
     loadModule(name, link.getAttribute("href"));
   });
